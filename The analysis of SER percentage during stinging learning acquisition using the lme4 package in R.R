@@ -1,4 +1,4 @@
-# The analysis of SER percentage during stinging learning acquisition using the lme4 package in R (version 1.1-37）
+# The analysis of SER percentage during stinging learning acquisition using the lme4 package (version 1.1-37) in R (version 4.1.3）
 # https://CRAN.R-project.org/package=lme4
 
 # 1. Data preprocessing
@@ -17,6 +17,7 @@ data$Response <- as.integer(data$Response)  # Response: 0 or 1
 
 # 2. Construct the Generalized Linear Mixture Model (GLMM)
 # (1) Full model (including interactions of group and trial)
+install.packages("lm4")
 library(lme4)
 Full_model <- glmer(
   Response ~ Group * Trial + (1 | Cage) + (1 | BeeID),  # Fixed effects: Group, Trial and their interaction terms; Random effect: Cage and BeeID
